@@ -11,19 +11,30 @@ export default function Weather(props) {
     return (
         <View>
             <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
-                <Text>Zip Code</Text>
-                <Text>{props.zipCode}</Text>
-                <Forecast {...forecastInfo} />
+                <View style={styles.backdrop2}>
+                    <Text >Zip Code</Text>
+                    <Text>{props.zipCode}</Text>
+                    <Forecast {...forecastInfo} />
+                </View>
             </ImageBackground>
         </View>
     );
 }
 const styles = StyleSheet.create({
     backdrop: {
-        alignItems: 'center',
+        
+        flexDirection : 'column',
+        alignItems : 'center',
+        
         width: '100%',
         height: '100%'
     },
+
+    backdrop2 : {
+        height : '40%',
+        backgroundColor : 
+
+    }
 });
    
    
