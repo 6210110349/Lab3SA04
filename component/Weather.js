@@ -2,7 +2,8 @@ import React from "react";
 import { Text,StyleSheet,ImageBackground,View } from "react-native";
 import { useState,useEffect } from "react";
 import Forecast from "./Forcast";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { timing } from "react-native-reanimated";
+
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: '-',
@@ -30,33 +31,38 @@ export default function Weather(props) {
     return (
         <View>
             <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
-                
-                    <Text >Zip Code</Text>
-                    <Text>{props.zipCode}</Text>
+                <View style={styles.backdrop2}>
+                    <Text style={styles.zip}>Zip Code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo} />
-                
+                </View>
             </ImageBackground>
         </View>
     );
 }
 const styles = StyleSheet.create({
     backdrop: {
-        
-        flexDirection : 'column',
-        alignItems : 'center',
-        
         width: '100%',
         height: '100%'
     },
 
-   // backdrop2 : {
-    //    height : '40%',
-    //    backgroundColor : '#000',
-    //    fontSize : 10,
+   backdrop2 : {
         
-        
+        width : '100%',
+        height : '40%',
+        backgroundColor : 'rgba(240,255,255,0.5)',
 
-   // },
+       
+        color : 'rgb(255,255,255)',
+        alignItems : 'center',
+        fontSize : 10,
+     
+    },
+    zip :{
+        
+        color : "rgb(255,2555,255)"
+    },
+   
+
     
 });
    
