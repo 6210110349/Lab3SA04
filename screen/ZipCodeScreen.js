@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
             justifyContent : 'space-evenly',
             alignItems: 'center',
             backgroundColor : 'rgba(240,255,255,0.1)',
+            fontSize : 15,
+            marginTop: 20,
+            marginLeft: 5,
+            marginRight: 5,
+            borderWidth: 3,
+
         },
         zipcode :{
             fontSize : 20,
@@ -59,15 +65,7 @@ const styles = StyleSheet.create({
             backgroundColor : 'rgba(0,255,255,0.5)',
             
         },
-        outder :{
-            width: 150,
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginLeft: 5,
-            marginRight: 5,
-            marginTop: 20,
-            borderWidth: 3,
-        },
+      
         backdrop: {
             width: '100%',
             height: '100%'
