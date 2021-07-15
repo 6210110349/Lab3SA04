@@ -39,6 +39,8 @@ export default function ZipCodeScreen(){
                    
                 />
                 <StatusBar style="auto" />
+            <Text style={styles.zipcode}>Description</Text> 
+            <Text style={styles.des}> กดที่ zipcode เพื่อดูรายละเอียดของ สภาพอากาศแต่ละพื้นที่</Text> 
             </View>
          </ImageBackground> 
     </View>
@@ -50,12 +52,13 @@ const styles = StyleSheet.create({
             flexDirection : "row",
             justifyContent : 'space-evenly',
             alignItems: 'center',
-            backgroundColor : 'rgba(240,255,255,0.1)',
+            backgroundColor : 'rgba(255,250,255,0.3)',
             fontSize : 15,
-            marginTop: 20,
+            marginTop: 10,
+            marginBottom : 10,
             marginLeft: 5,
             marginRight: 5,
-            borderWidth: 3,
+            borderWidth: 1,
 
         },
         zipcode :{
@@ -63,6 +66,14 @@ const styles = StyleSheet.create({
             color : "rgb(255,2555,255)",
             
             backgroundColor : 'rgba(0,255,255,0.5)',
+            
+        },
+        
+        des :{
+            fontSize : 15,
+            color : "rgb(255,2555,255)",
+            
+            backgroundColor : 'rgba(240,255,255,0.5)',
             
         },
       
