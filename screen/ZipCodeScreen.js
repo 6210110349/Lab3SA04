@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList , View , Text ,StyleSheet, TouchableHighlight} from 'react-native'
+import { FlatList , View , Text ,StyleSheet, TouchableHighlight, ImageBackground} from 'react-native'
 import { useNavigation } from '@react-navigation/core'
 import { StatusBar } from 'expo-status-bar'
 
@@ -16,8 +16,8 @@ const ZipItem = ({place, code, navigation}) => (
         navigation.navigate('Weather' , {zipCode : code})
     }}>
         <View style = {styles.zipItem}>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+            <Text style={styles.text}>{place}</Text>
+            <Text style={styles.text}>{code}</Text>
         </View>
     </TouchableHighlight>
     
@@ -27,13 +27,20 @@ export default function ZipCodeScreen(){
     
     const navigation = useNavigation()
     return (
-    <View>
-        <FlatList
-            data={availableZipItems}
-            keyExtractor={_keyExtractor}
-            renderItem={({item}) => <ZipItem {...item} navigation={navigation}/>}
-        />
-        <StatusBar style="auto" />
+    <View >
+        <ImageBackground source={require('../bg.jpg')} style={styles.backdrop} >
+            <View>
+            <Text style={styles.zipcode}>ZipCode</Text> 
+                <FlatList
+                    
+                        data={availableZipItems}
+                        keyExtractor={_keyExtractor}
+                        renderItem={({item}) => <ZipItem {...item} navigation={navigation}/> }
+                   
+                />
+                <StatusBar style="auto" />
+            </View>
+         </ImageBackground> 
     </View>
     );
 }  
@@ -41,8 +48,33 @@ const styles = StyleSheet.create({
         zipItem :{
             flex :1,
             flexDirection : "row",
-            justifyContent : "space-between"
-
+            justifyContent : 'space-evenly',
+            alignItems: 'center',
+            backgroundColor : 'rgba(240,255,255,0.1)',
         },
+        zipcode :{
+            fontSize : 20,
+            color : "rgb(255,2555,255)",
+            
+            backgroundColor : 'rgba(0,255,255,0.5)',
+            
+        },
+        outder :{
+            width: 150,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginLeft: 5,
+            marginRight: 5,
+            marginTop: 20,
+            borderWidth: 3,
+        },
+        backdrop: {
+            width: '100%',
+            height: '100%'
+        },
+        text :{
+            color : "rgb(255,2555,255)"
+        }
+
     })
 
