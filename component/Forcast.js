@@ -7,12 +7,14 @@ import { block, color } from "react-native-reanimated";
 export default function Forecast(props) {
     return (
         <View >
+            
             <View style = {styles.block1}>
                 <Text style = {styles.Layout1}>{props.main}</Text>
                 <Text style = {styles.Layout2}>{props.description}</Text>
                 <Text style = {styles.Layout3}>{props.temp} °C</Text>
-                <Text style = {styles.Layout3}>{props.huminity}</Text>
+                <Text style = {styles.Layout3}>humidity : {props.humidity} / pressure : {props.pressure} </Text>
             </View>
+           
         </View>
      );
 }
