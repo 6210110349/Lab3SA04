@@ -2,14 +2,15 @@ import React from "react";
 import { Text,StyleSheet,ImageBackground,View } from "react-native";
 import { useState,useEffect } from "react";
 import Forecast from "./Forcast";
-import { timing } from "react-native-reanimated";
+
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: '-',
         description: '-',
         humidity : 0,
-        temp: 0
+        temp: 0,
+        pressure : 0,
     })
     useEffect(() => {
         console.log(`fetching data with zipCode = ${props.zipCode}`)
@@ -22,6 +23,7 @@ export default function Weather(props) {
                         main: json.weather[0].main,
                         description: json.weather[0].description,
                         humidity : json.main.humidity,
+                        pressure : json.main.pressure,
                         temp: json.main.temp});
                     })
                 .catch((error) => {
@@ -32,7 +34,7 @@ export default function Weather(props) {
     
     return (
         <View>
-            <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
+            <ImageBackground source={require('../sky2.png')} style={styles.backdrop}>
                 <View style={styles.backdrop2}>
                     <Text style={styles.zip}>Zip Code is {props.zipCode}</Text>
                     <Forecast {...forecastInfo} />
@@ -50,8 +52,8 @@ const styles = StyleSheet.create({
    backdrop2 : {
         
         width : '100%',
-        height : '40%',
-        backgroundColor : 'rgba(240,255,255,0.5)',
+        height : '45%',
+        backgroundColor : 'rgba(0,0,0,0.3)',
 
        
         color : 'rgb(255,255,255)',

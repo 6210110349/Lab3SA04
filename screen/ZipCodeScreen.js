@@ -29,7 +29,7 @@ export default function ZipCodeScreen(){
     return (
     <View >
         <ImageBackground source={require('../bg.jpg')} style={styles.backdrop} >
-            <View>
+            <View style={styles.background}>
             <Text style={styles.zipcode}>ZipCode</Text> 
                 <FlatList
                     
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
             flexDirection : "row",
             justifyContent : 'space-evenly',
             alignItems: 'center',
-            backgroundColor : 'rgba(255,250,255,0.3)',
+            backgroundColor : 'rgba(0,0,0,0.3)',
             fontSize : 15,
             marginTop: 10,
             marginBottom : 10,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
             fontSize : 20,
             color : "rgb(255,2555,255)",
             
-            backgroundColor : 'rgba(0,255,255,0.5)',
+            backgroundColor : 'rgba(240,255,255,0.5)',
             
         },
         
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
             fontSize : 15,
             color : "rgb(255,2555,255)",
             
-            backgroundColor : 'rgba(240,255,255,0.5)',
+            backgroundColor : 'rgba(0,0,0,0.1)',
             
         },
       
@@ -83,6 +83,11 @@ const styles = StyleSheet.create({
         },
         text :{
             color : "rgb(255,2555,255)"
+        },
+        background : {
+            backgroundColor : 'rgba(0,0,0,0.2)',
+            width : '100%',
+            height : '100%',
         }
 
     })
